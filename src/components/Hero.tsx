@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Download } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import styles from "./components.module.css";
 import { resumeData } from "../data/resume";
 
@@ -56,15 +56,6 @@ export default function Hero() {
           </a>
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="btn btn-primary"
-          onClick={() => window.open("/QA Test Engineer.pdf")}
-        >
-          <Download size={20} />
-          Download Resume
-        </motion.button>
       </motion.div>
     </section>
   );

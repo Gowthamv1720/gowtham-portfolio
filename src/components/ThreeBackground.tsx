@@ -18,10 +18,21 @@ function ParticleSwarm({ count = 3000 }) {
     return positions;
   }, [count]);
 
+  const mousePosition = useRef({ x: 0, y: 0 });
+
   useFrame((state, delta) => {
+    // Track mouse if available
+    mousePosition.current.x = (state.pointer.x * Math.PI) / 10;
+    mousePosition.current.y = (state.pointer.y * Math.PI) / 10;
+
     if (points.current) {
-      points.current.rotation.x -= delta / 10;
-      points.current.rotation.y -= delta / 15;
+      // Base rotation
+      points.current.rotation.x -= delta / 15;
+      points.current.rotation.y -= delta / 20;
+
+      // Interactive rotation (parallax)
+      points.current.rotation.x += (mousePosition.current.y - points.current.rotation.x) * 0.05;
+      points.current.rotation.y += (mousePosition.current.x - points.current.rotation.y) * 0.05;
     }
   });
 
@@ -30,7 +41,7 @@ function ParticleSwarm({ count = 3000 }) {
       <PointMaterial
         transparent
         color="#00f0ff"
-        size={0.03}
+        size={0.035}
         sizeAttenuation={true}
         depthWrite={false}
         opacity={0.6}

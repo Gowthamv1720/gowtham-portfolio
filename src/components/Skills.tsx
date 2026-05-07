@@ -15,17 +15,31 @@ export default function Skills() {
           <motion.div
             key={category}
             className={styles.card}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.9 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                transition: { duration: 0.4, delay: index * 0.1, staggerChildren: 0.05 },
+              },
+            }}
           >
             <h3 className={styles.skillCategoryTitle}>{category}</h3>
             <div className={styles.skillTags}>
               {skills.map((skill) => (
-                <span key={skill} className={styles.skillTag}>
+                <motion.span
+                  key={skill}
+                  className={styles.skillTag}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
           </motion.div>

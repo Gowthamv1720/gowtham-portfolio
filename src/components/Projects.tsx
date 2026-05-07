@@ -15,10 +15,17 @@ export default function Projects() {
           <motion.div
             key={index}
             className={styles.card}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.5, delay: index * 0.2, staggerChildren: 0.1 },
+              },
+            }}
           >
             <h3 className={styles.cardTitle}>{project.title}</h3>
             <p style={{ color: "var(--text-primary)", marginBottom: "1rem" }}>
@@ -26,16 +33,41 @@ export default function Projects() {
             </p>
             <ul className={styles.bulletList}>
               {project.bullets.map((bullet, idx) => (
-                <li key={idx}>{bullet}</li>
+                <motion.li
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, x: -10 },
+                    visible: { opacity: 1, x: 0 },
+                  }}
+                >
+                  {bullet}
+                </motion.li>
               ))}
             </ul>
-            <div className={styles.skillTags} style={{ marginTop: "1rem" }}>
+            <motion.div
+              className={styles.skillTags}
+              style={{ marginTop: "1rem" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.05, delayChildren: 0.3 },
+                },
+              }}
+            >
               {project.tags.map((tag) => (
-                <span key={tag} className={styles.skillTag}>
+                <motion.span
+                  key={tag}
+                  className={styles.skillTag}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1 },
+                  }}
+                >
                   {tag}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>

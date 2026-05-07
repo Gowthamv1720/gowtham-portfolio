@@ -8,6 +8,8 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Awards from "@/components/Awards";
+import Cursor from "@/components/Cursor";
+import ProgressBar from "@/components/ProgressBar";
 
 // Dynamically import ThreeBackground to avoid SSR issues with canvas
 const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
@@ -17,6 +19,8 @@ const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
 export default function Home() {
   return (
     <main style={{ position: "relative" }}>
+      <Cursor />
+      <ProgressBar />
       <ThreeBackground />
       <div style={{ position: "relative", zIndex: 1 }}>
         <Hero />

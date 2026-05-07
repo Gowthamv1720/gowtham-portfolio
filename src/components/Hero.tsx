@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import styles from "./components.module.css";
 import { resumeData } from "../data/resume";
@@ -8,15 +8,44 @@ import { resumeData } from "../data/resume";
 export default function Hero() {
   const { name, role, phone, email, location, linkedin } = resumeData.personalInfo;
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 100 },
+    },
+  };
+
   return (
     <section className={styles.hero}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <h1 className={`${styles.heroTitle} text-gradient`}>{name}</h1>
-        <h2 className={styles.heroSubtitle}>{role}</h2>
+        <h1 className={`${styles.heroTitle} text-gradient`}>
+          {name.split("").map((char, index) => (
+            <motion.span key={index} variants={itemVariants}>
+              {char}
+            </motion.span>
+          ))}
+        </h1>
+        <h2 className={styles.heroSubtitle}>
+          {role.split("").map((char, index) => (
+            <motion.span key={index} variants={itemVariants}>
+              {char}
+            </motion.span>
+          ))}
+        </h2>
 
         <div className={styles.contactInfo}>
           <a href={`tel:${phone}`} className={styles.contactItem}>

@@ -62,9 +62,9 @@ function TestScanner() {
     return {
       uniforms: {
         uScannerZ: { value: 0 },
-        uColorIdle: { value: new THREE.Color("#2a153a") },
-        uColorPass: { value: new THREE.Color("#ff007f") }, // Bright purple/pink
-        uColorScanner: { value: new THREE.Color("#ff7b00") }, // Orange scanner line
+        uColorIdle: { value: new THREE.Color("#251c2d") },
+        uColorPass: { value: new THREE.Color("#ab7cb3") }, // Soft muted purple
+        uColorScanner: { value: new THREE.Color("#dca568") }, // Soft gold/copper
       },
       vertexShader: `
         varying vec3 vPosition;
@@ -118,7 +118,7 @@ function TestScanner() {
       {/* The visible glowing scanner plane */}
       <mesh ref={scannerRef}>
         <planeGeometry args={[20, 20]} />
-        <meshBasicMaterial color="#ff7b00" transparent opacity={0.05} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#dca568" transparent opacity={0.03} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );

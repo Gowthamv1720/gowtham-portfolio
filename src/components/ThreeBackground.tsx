@@ -1,23 +1,12 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
+import { Grid } from "@react-three/drei";
 import * as THREE from "three";
 
-function ParticleSwarm({ count = 3000 }) {
-  const points = useRef<THREE.Points>(null);
-
-  const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
-    }
-    return positions;
-  }, [count]);
-
+function AnimatedGrid() {
+  const gridRef = useRef<THREE.Group>(null);
   const mousePosition = useRef({ x: 0, y: 0 });
 
   useFrame((state, delta) => {
@@ -25,36 +14,38 @@ function ParticleSwarm({ count = 3000 }) {
     mousePosition.current.x = (state.pointer.x * Math.PI) / 10;
     mousePosition.current.y = (state.pointer.y * Math.PI) / 10;
 
-    if (points.current) {
-      // Base rotation
-      points.current.rotation.x -= delta / 15;
-      points.current.rotation.y -= delta / 20;
-
-      // Interactive rotation (parallax)
-      points.current.rotation.x += (mousePosition.current.y - points.current.rotation.x) * 0.05;
-      points.current.rotation.y += (mousePosition.current.x - points.current.rotation.y) * 0.05;
+    if (gridRef.current) {
+      // Move the grid to simulate forward movement (like navigating through data)
+      gridRef.current.position.z = (gridRef.current.position.z + delta * 2) % 1;
+      
+      // Slight parallax based on mouse
+      gridRef.current.rotation.x = -Math.PI / 2 + mousePosition.current.y * 0.2;
+      gridRef.current.rotation.y = mousePosition.current.x * 0.2;
     }
   });
 
   return (
-    <Points ref={points} positions={particlesPosition} stride={3} frustumCulled={false}>
-      <PointMaterial
-        transparent
-        color="#00f0ff"
-        size={0.035}
-        sizeAttenuation={true}
-        depthWrite={false}
-        opacity={0.6}
+    <group ref={gridRef} position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <Grid
+        infiniteGrid
+        fadeDistance={20}
+        sectionColor="#00f0ff"
+        cellColor="#ffffff"
+        sectionSize={2}
+        cellSize={0.5}
+        sectionThickness={1}
+        cellThickness={0.5}
       />
-    </Points>
+    </group>
   );
 }
 
 export default function ThreeBackground() {
   return (
     <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: -1, background: "var(--bg-primary)" }}>
-      <Canvas camera={{ position: [0, 0, 5] }}>
-        <ParticleSwarm />
+      <Canvas camera={{ position: [0, 1, 5], fov: 60 }}>
+        <fog attach="fog" args={["#0a0a0e", 5, 15]} />
+        <AnimatedGrid />
       </Canvas>
     </div>
   );

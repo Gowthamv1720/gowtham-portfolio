@@ -31,14 +31,14 @@ export default function Projects() {
           className={`${styles.scrollBtn} ${styles.leftBtn}`}
           aria-label="Previous Project"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={28} />
         </button>
         <button
           onClick={() => scroll("right")}
           className={`${styles.scrollBtn} ${styles.rightBtn}`}
           aria-label="Next Project"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={28} />
         </button>
         <div className={styles.projectsScrollContainer} ref={scrollRef}>
           {resumeData.projects.map((project, index) => (

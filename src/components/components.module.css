@@ -147,7 +147,7 @@
 .projectsWrapper {
   position: relative;
   width: 100%;
-  padding: 0 3.5rem;
+  padding: 0 5rem;
 }
 
 .scrollBtn {
@@ -158,8 +158,8 @@
   background: var(--accent);
   border: none;
   color: #0f0a12;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -181,11 +181,11 @@
 }
 
 .leftBtn {
-  left: 0.75rem;
+  left: 1rem;
 }
 
 .rightBtn {
-  right: 0.75rem;
+  right: 1rem;
 }
 
 .projectsScrollContainer {
@@ -234,17 +234,17 @@
     padding: 3rem 1rem;
   }
   .projectsWrapper {
-    padding: 0 2.5rem;
+    padding: 0 3rem;
   }
   .leftBtn {
-    left: 0.25rem;
+    left: 0.5rem;
   }
   .rightBtn {
-    right: 0.25rem;
+    right: 0.5rem;
   }
   .scrollBtn {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
   .projectCard {
     flex: 0 0 85vw;

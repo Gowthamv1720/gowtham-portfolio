@@ -147,7 +147,7 @@
 .projectsWrapper {
   position: relative;
   width: 100%;
-  padding: 0 5rem;
+  padding: 0;
 }
 
 .scrollBtn {
@@ -193,6 +193,7 @@
   overflow-x: auto;
   gap: 2rem;
   padding: 0.5rem 0.5rem 2rem 0.5rem;
+  margin: 0 5rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: var(--accent) transparent;
@@ -234,7 +235,10 @@
     padding: 3rem 1rem;
   }
   .projectsWrapper {
-    padding: 0 3rem;
+    padding: 0;
+  }
+  .projectsScrollContainer {
+    margin: 0 3rem;
   }
   .leftBtn {
     left: 0.5rem;

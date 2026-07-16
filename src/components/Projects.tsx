@@ -1,29 +1,54 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./components.module.css";
 import { resumeData } from "../data/resume";
 
 export default function Projects() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      scrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className={styles.section} id="projects">
-      <h2 className="section-title">
-        Featured <span>Projects</span>
-      </h2>
-      <div className={styles.projectsGrid}>
+      <div className={styles.sectionHeader}>
+        <h2 className="section-title" style={{ marginBottom: 0 }}>
+          Featured <span>Projects</span>
+        </h2>
+        <div className={styles.scrollButtons}>
+          <button onClick={() => scroll("left")} className={styles.scrollBtn} aria-label="Previous Project">
+            <ChevronLeft size={20} />
+          </button>
+          <button onClick={() => scroll("right")} className={styles.scrollBtn} aria-label="Next Project">
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      </div>
+      <div className={styles.projectsScrollContainer} ref={scrollRef}>
         {resumeData.projects.map((project, index) => (
           <motion.div
             key={index}
-            className={styles.card}
+            className={`${styles.card} ${styles.projectCard}`}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.5, delay: index * 0.2, staggerChildren: 0.1 },
+                transition: { duration: 0.5, delay: index * 0.1, staggerChildren: 0.1 },
               },
             }}
           >

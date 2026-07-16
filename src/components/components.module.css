@@ -144,38 +144,47 @@
   background: rgba(0, 240, 255, 0.05);
 }
 
-.sectionHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+.projectsWrapper {
+  position: relative;
   width: 100%;
 }
 
-.scrollButtons {
-  display: flex;
-  gap: 0.75rem;
-}
-
 .scrollBtn {
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(22, 16, 26, 0.95);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
+  box-shadow: 0 0 15px rgba(220, 165, 104, 0.35);
 }
 
 .scrollBtn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-glow);
-  transform: scale(1.05);
+  background: var(--accent);
+  color: #0f0a12;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.scrollBtn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.leftBtn {
+  left: -24px;
+}
+
+.rightBtn {
+  right: -24px;
 }
 
 .projectsScrollContainer {
@@ -223,11 +232,15 @@
   .section {
     padding: 3rem 1rem;
   }
-  .sectionHeader {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    text-align: center;
+  .leftBtn {
+    left: -10px;
+  }
+  .rightBtn {
+    right: -10px;
+  }
+  .scrollBtn {
+    width: 40px;
+    height: 40px;
   }
   .projectCard {
     flex: 0 0 85vw;

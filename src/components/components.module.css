@@ -224,6 +224,19 @@
   margin-bottom: 0 !important;
 }
 
+/* Wide screens: align projects container perfectly with main page boundaries */
+@media (min-width: 1360px) {
+  .projectsScrollContainer {
+    margin: 0;
+  }
+  .leftBtn {
+    left: -4.5rem;
+  }
+  .rightBtn {
+    right: -4.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2.5rem;

@@ -180,11 +180,11 @@
 }
 
 .leftBtn {
-  left: -24px;
+  left: -32px;
 }
 
 .rightBtn {
-  right: -24px;
+  right: -32px;
 }
 
 .projectsScrollContainer {
@@ -217,7 +217,7 @@
 }
 
 .projectCard {
-  flex: 0 0 500px;
+  flex: 0 0 calc(50% - 1rem);
   scroll-snap-align: start;
   margin-bottom: 0 !important;
 }
@@ -233,10 +233,10 @@
     padding: 3rem 1rem;
   }
   .leftBtn {
-    left: -10px;
+    left: -16px;
   }
   .rightBtn {
-    right: -10px;
+    right: -16px;
   }
   .scrollBtn {
     width: 40px;

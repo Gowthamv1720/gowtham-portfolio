@@ -1,19 +1,19 @@
 export const resumeData = {
   personalInfo: {
     name: "Gowtham Velusamy",
-    role: "QA Test Engineer",
+    role: "Junior QA Tester",
     phone: "+91 7904517141",
-    email: "gowthamkv1720@gmail.com",
+    email: "gowthamgv1720@gmail.com",
     location: "Karur, Tamil Nadu",
     linkedin: "www.linkedin.com/in/gowtham-kv",
   },
   summary:
-    "QA Test Engineer with 2.9+ years of experience in Manual Testing, Software Testing Life Cycle (STLC), and QA of ML-driven platforms. Proven expertise in Test Case Design & Execution, Defect Lifecycle Management, Regression Testing, and Requirement Traceability Matrix (RTM) preparation. Proficient in API Testing, Test Automation using Python, Selenium, and Robot Framework, and cross-functional collaboration with development and ML teams. Possesses working knowledge of Machine Learning and Deep Learning, enabling effective Quality Assurance on ML pipelines and AI-driven document processing systems. Recognized for exceptional performance in the Blueprint Creation (BPC) module and promoted to Lead Quality Analyst to manage a team of 100+ members. Annual High-Achiever Award recipient (2024).",
+    "QA Test Engineer with 3 years of experience in Manual Testing, Software Testing Life Cycle (STLC), and QA of ML-driven platforms. Proven expertise in Test Case Design & Execution, Defect Lifecycle Management, Regression Testing, and Requirement Traceability Matrix (RTM) preparation. Proficient in API Testing, Test Automation using Python, Selenium, and Robot Framework, and cross-functional collaboration with development and ML teams. Possesses working knowledge of Machine Learning and Deep Learning, enabling effective Quality Assurance on ML pipelines and AI-driven document processing systems.",
   experience: [
     {
-      role: "QA Test Engineer",
+      role: "Junior QA Tester",
       company: "Objectways Technologies",
-      duration: "2023 - Present",
+      duration: "July 2023 - Present",
       bullets: [
         "Oversaw end-to-end STLC for internal annotation platforms and ML data pipelines, ensuring 100% test coverage and on-time sprint delivery across all release cycles.",
         "Analyzed BRD, prepared Test Plans, Test Scenarios, and RTM. Executed Functional, Regression, Smoke, Sanity, Integration, E2E, Performance and UAT testing across all modules.",
@@ -38,46 +38,26 @@ export const resumeData = {
       "E2E Testing",
       "Cross-browser Testing",
     ],
-    "Testing Tools": [
-      "JIRA (Defect Tracking)",
-      "Postman (API Testing)",
-      "Selenium WebDriver",
-      "Robot Framework",
-      "TestRail",
-      "BDD Cucumber",
-      "MS Excel",
-    ],
-    "SDLC / STLC": [
-      "SDLC",
-      "STLC",
-      "Agile / Scrum",
-      "Test Planning",
-      "Test Execution",
-      "Defect Lifecycle Management",
-    ],
-    "Test Artifacts": [
-      "Test Plan",
-      "Test Cases",
-      "Test Scenarios",
-      "Test Summary Report",
-      "RTM",
-      "Test Coverage",
-    ],
     Automation: [
       "Python",
       "Java",
       "Selenium WebDriver",
       "Robot Framework",
+      "Postman (API Testing)",
       "Pytest",
       "Pandas",
     ],
-    "Other Tools": [
+    Tools: [
       "SQL",
       "Git",
       "GitHub Actions",
       "CI/CD",
       "BrowserStack",
+      "JIRA (Defect Tracking)",
       "Appium",
+      "TestRail",
+      "BDD Cucumber",
+      "MS Excel",
     ],
     "AI / ML Knowledge": [
       "Machine Learning",
@@ -92,9 +72,8 @@ export const resumeData = {
       description:
         "Intelligent document processing platform — auto-extracts key-value pairs from uploaded documents and populates target web application fields via an ML engine (Blueprint Creation & Blueprint Response modules).",
       bullets: [
-        "Analyzed BRD, prepared RTM and Test Plans; executed Smoke, Sanity, Functional, Integration, Regression, and E2E Testing; performed Data Validation to verify key-value extraction accuracy.",
-        "Conducted API Testing via Postman and used SQL to validate backend data integrity; coordinated UAT and prepared Test Summary Reports.",
-        "Managed QA members — task allocation, stand-ups, and milestone tracking — collaborating with ML engineers and developers for defect root cause resolution.",
+        "Analyzed BRD, prepared RTM and Test Plans; executed Smoke, Sanity, Functional, Integration, Regression, and E2E Testing manually; performed manual Data Validation to verify key-value extraction accuracy across all document types.",
+        "Conducted manual API Testing via Postman and used SQL to validate backend data integrity; coordinated UAT, prepared Test Summary Reports, and managed QA members — task allocation, stand-ups, and milestone tracking — collaborating with ML engineers and developers for defect root cause resolution.",
       ],
       tags: [
         "Smoke",
@@ -108,12 +87,12 @@ export const resumeData = {
       ],
     },
     {
-      title: "Objectways Website – QA & Automation",
+      title: "Objectways Website",
       description:
-        "Full-cycle QA on the organization's main website — content validation, functional testing, API testing, Python-Selenium automation, and load testing on the Egocentric data explorer page.",
+        "Full-cycle manual QA on the organization's main website covering content validation, functional testing, API testing, and load testing on the Egocentric data explorer page.",
       bullets: [
-        "Built a Python-Selenium automation script for the Contact Us page with a daily 9:00 AM scheduled trigger; performed Load Testing on the Egocentric page to verify zero buffering under large file uploads.",
-        "Validated HTTP methods, URL structures, and payloads via Postman; used SQL to cross-verify UI data with backend records; tracked all defects in JIRA through the complete Bug Life Cycle.",
+        "Performed manual Functional and Content Validation Testing across all website modules; conducted manual API Testing via Postman validating HTTP methods, URL structures, and payloads; used SQL to cross-verify UI data with backend records; tracked all defects in JIRA through the complete Bug Life Cycle.",
+        "For the Contact Us form validation, built a Python-Selenium automation script with a daily 9:00 AM scheduled trigger to automate repetitive form submission and validation scenarios; performed manual Load Testing on the Egocentric data explorer page to verify zero buffering under large file uploads.",
       ],
       tags: [
         "Functional",
@@ -129,8 +108,8 @@ export const resumeData = {
       description:
         "High-traffic internal web application tracking employee active/idle/offline status, working hours, and generating billing reports for payroll and invoicing across the organization.",
       bullets: [
-        "Built Robot Framework and Python automation suites; validated billing records and data flows against backend database via SQL; conducted API Testing on all service endpoints via Postman.",
-        "Performed Stress and Load Testing under concurrent multi-user access; validated billable vs. non-billable hour accuracy; managed defects in JIRA through closure each cycle.",
+        "Performed manual Functional Testing across all portal modules; manually validated billing records and data flows against the backend database via SQL; conducted manual API Testing on all service endpoints via Postman to verify request and response accuracy.",
+        "Performed manual Stress and Load Testing under concurrent multi-user access scenarios; manually validated billable vs. non-billable hour accuracy across payroll cycles; managed all defects in JIRA through closure each cycle.",
       ],
       tags: [
         "Functional",
@@ -140,6 +119,22 @@ export const resumeData = {
         "Regression",
         "Load",
         "Stress Testing",
+      ],
+    },
+    {
+      title: "Liceum.ai — AI-Powered Freelance Marketplace Platform",
+      description:
+        "An Upwork-style platform where Recruiters post jobs and skill-matched Workers apply, supporting Fixed-Price Milestone-based projects and Hourly billing cycle payments.",
+      bullets: [
+        "Prepared Test Plans, Test Cases, and RTM across all platform modules; manually executed Functional and Integration Testing covering field-level validations, mandatory field enforcement, milestone status transitions (Pending → Submitted → Approved/Rejected), and verified approved milestone funds are correctly credited to the Worker's account.",
+        "Performed manual Negative Testing for unauthorized fund release, empty milestone submissions, and unauthorized contract access; manually validated payment transactions, milestone fund allocations, and billing amounts against UI and invoice values; managed all defects in JIRA through closure.",
+      ],
+      tags: [
+        "Functional",
+        "Integration",
+        "Negative Testing",
+        "UAT",
+        "Data Validation",
       ],
     },
   ],
@@ -156,12 +151,6 @@ export const resumeData = {
       duration: "2020 - 2022",
       details: "CGPA: 8.2 | Coimbatore, Tamil Nadu",
     },
-    {
-      degree: "B.Sc. Physics",
-      institution: "Sri Ramakrishna Mission Vidyalaya College",
-      duration: "2017 - 2020",
-      details: "CGPA: 7.0 | Coimbatore, Tamil Nadu",
-    },
   ],
   awards: [
     {
@@ -173,11 +162,6 @@ export const resumeData = {
       title: "Monthly Performance Excellence Award (Nov 2023)",
       description:
         "Awarded for outstanding contribution to the Blueprint Creation (BPC) module quality and timely delivery.",
-    },
-    {
-      title: "Promoted to Lead Quality Analyst",
-      description:
-        "Recognized for BPC performance and elevated to Lead role to oversee and mentor a team of 100+ members across critical AI training pipelines for a time period of one year.",
     },
   ],
 };

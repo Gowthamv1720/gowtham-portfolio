@@ -1,7 +1,7 @@
 export const resumeData = {
   personalInfo: {
     name: "Gowtham Velusamy",
-    role: "Junior QA Tester",
+    role: "Junior QA Engineer",
     phone: "+91 7904517141",
     email: "gowthamgv1720@gmail.com",
     location: "Karur, Tamil Nadu",
@@ -11,7 +11,7 @@ export const resumeData = {
     "QA Test Engineer with 3 years of experience in Manual Testing, Software Testing Life Cycle (STLC), and QA of ML-driven platforms. Proven expertise in Test Case Design & Execution, Defect Lifecycle Management, Regression Testing, and Requirement Traceability Matrix (RTM) preparation. Proficient in API Testing, Test Automation using Python, Selenium, and Robot Framework, and cross-functional collaboration with development and ML teams. Possesses working knowledge of Machine Learning and Deep Learning, enabling effective Quality Assurance on ML pipelines and AI-driven document processing systems.",
   experience: [
     {
-      role: "Junior QA Tester",
+      role: "Junior QA Engineer",
       company: "Objectways Technologies",
       duration: "July 2023 - Present",
       bullets: [

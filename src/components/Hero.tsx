@@ -2,46 +2,14 @@
 
 import { motion } from "framer-motion";
 import { resumeData } from "../data/resume";
-import { useEffect, useState } from "react";
+import styles from "./components.module.css";
 
 export default function Hero() {
-  const { name, role, phone, email, location, linkedin } = resumeData.personalInfo;
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 968);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { name, role } = resumeData.personalInfo;
 
   return (
-    <section
-      style={{
-        width: "100%",
-        minHeight: "95vh",
-        padding: isMobile ? "7rem 1.5rem 3rem 1.5rem" : "8rem 2rem 4rem 2rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        zIndex: 2,
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "900px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-      >
+    <section className={styles.heroSection}>
+      <div className={styles.heroContent}>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,42 +21,15 @@ export default function Hero() {
             justifyContent: "center",
           }}
         >
-          <h1
-            className="text-gradient"
-            style={{
-              fontSize: isMobile ? "2.75rem" : "4.25rem",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              marginBottom: "0.7rem",
-            }}
-          >
+          <h1 className={`${styles.heroTitle} text-gradient`}>
             {name}
           </h1>
 
-          <p
-            style={{
-              fontSize: isMobile ? "1rem" : "1.15rem",
-              color: "var(--accent)",
-              fontWeight: 600,
-              textTransform: "uppercase",
-              letterSpacing: "0.16em",
-              marginBottom: "0.8rem",
-            }}
-          >
+          <p className={styles.heroRole}>
             {role}
           </p>
 
-          <p
-            style={{
-              fontSize: isMobile ? "1rem" : "1.2rem",
-              color: "var(--text-primary)",
-              fontWeight: 400,
-              maxWidth: "680px",
-              lineHeight: 1.5,
-              marginBottom: "0",
-            }}
-          >
+          <p className={styles.heroDesc}>
             Ensuring software & machine learning pipelines operate flawlessly.
           </p>
         </motion.div>

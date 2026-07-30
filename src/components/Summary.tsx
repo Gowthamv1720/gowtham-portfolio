@@ -23,17 +23,8 @@ export default function Summary() {
             width: "100%",
           }}
         >
-          <div
-            style={{
-              width: "100%",
-              maxWidth: "1040px",
-              display: "grid",
-              gridTemplateColumns: "1.3fr 0.7fr",
-              gap: "2.5rem",
-              alignItems: "center",
-            }}
-          >
-            <div className={styles.card}>
+          <div className={styles.summaryGrid}>
+            <div className={`${styles.card} ${styles.summaryCard}`}>
               <h2
                 className="section-title"
                 style={{
@@ -48,7 +39,7 @@ export default function Summary() {
               </p>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", paddingRight: "1rem" }}>
+            <div className={styles.profileImageWrapper}>
               <motion.div
                 initial={{ rotate: -10, y: 0, scale: 1 }}
                 animate={isHovered
@@ -59,21 +50,12 @@ export default function Summary() {
                   : { duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                style={{
-                  width: "300px",
-                  maxWidth: "100%",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  border: "1px solid var(--border-color)",
-                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.35)",
-                  cursor: "pointer",
-                  transformOrigin: "center center",
-                }}
+                className={styles.profileImageCard}
               >
                 <img
                   src="/gowtham_portrait.jpg"
                   alt={resumeData.personalInfo.name}
-                  style={{ width: "100%", height: "auto", display: "block" }}
+                  className={styles.profileImage}
                 />
               </motion.div>
             </div>

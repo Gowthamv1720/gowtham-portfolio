@@ -288,12 +288,14 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  grid-template-areas: "summary image";
   gap: 2.5rem;
   align-items: center;
 }
 
 .summaryCard {
   padding: 2.25rem;
+  grid-area: summary;
 }
 
 .profileImageWrapper {
@@ -301,6 +303,7 @@
   justify-content: flex-end;
   align-items: center;
   padding-right: 1rem;
+  grid-area: image;
 }
 
 .profileImageCard {
@@ -328,21 +331,22 @@
   transition: transform 0.35s ease;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
   .summaryGrid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "summary";
     gap: 1.5rem;
   }
 
   .summaryCard {
     padding: 2rem;
-    grid-row: 2;
   }
 
   .profileImageWrapper {
     justify-content: center;
     padding-right: 0;
-    grid-row: 1;
   }
 
   .profileImageCard {

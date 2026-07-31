@@ -1,107 +1,112 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { resumeData } from "../data/resume";
 import styles from "./components.module.css";
 
 export default function Hero() {
-  const { name, role, email, phone, location, linkedin } = resumeData.personalInfo;
+  const { name, role, email, linkedin } = resumeData.personalInfo;
 
   return (
     <section className={styles.heroSection}>
-      <div className={styles.heroContent}>
-        {/* Status Pill Badge */}
+      <div className={styles.heroSplitGrid}>
+        {/* Left Margin: Name, Designation & Single Sentence */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className={styles.statusBadge}
-          data-cursor="QA TECH"
+          className={styles.heroLeftCol}
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className={styles.statusDot} />
-          <span>3+ Years STLC & ML QA Engineer</span>
-        </motion.div>
+          {/* Status Badge */}
+          <div className={styles.statusBadge} data-cursor="QA TECH">
+            <span className={styles.statusDot} />
+            <span>3+ Years STLC & ML QA Engineer</span>
+          </div>
 
-        {/* Staggered Name Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        >
+          {/* Name */}
           <h1 className={`${styles.heroTitle} text-gradient`} data-cursor="GOWTHAM">
             {name}
           </h1>
+
+          {/* Designation */}
+          <h2 className={styles.heroRole}>
+            {role}
+          </h2>
+
+          {/* Single Sentence Summary */}
+          <p className={styles.heroSingleSentence}>
+            Ensuring software & machine learning pipelines operate flawlessly.
+          </p>
+
+          {/* Key Skill Tags */}
+          <div className={styles.heroTagContainer}>
+            {["Manual Testing", "API QA (Postman)", "Python & Selenium", "ML Output QA", "JIRA Defect Tracking"].map(
+              (tag, idx) => (
+                <span key={idx} className={styles.heroTagPill} data-cursor={tag.toUpperCase()}>
+                  {tag}
+                </span>
+              )
+            )}
+          </div>
+
+          {/* Call to Action Buttons */}
+          <div className={styles.heroCtaGroup}>
+            <a
+              href={`mailto:${email}`}
+              className={styles.primaryCta}
+              data-cursor="HIRE ME"
+            >
+              Get In Touch
+            </a>
+            <a
+              href={`https://${linkedin}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.secondaryCta}
+              data-cursor="LINKEDIN"
+            >
+              LinkedIn Profile ↗
+            </a>
+          </div>
         </motion.div>
 
-        {/* Subtitle Role */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
-          className={styles.heroRole}
-        >
-          {role} • Manual & Automation QA Specialist
-        </motion.h2>
-
-        {/* Core Value Statement */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className={styles.heroDesc}
-        >
-          Ensuring STLC excellence across web applications, high-throughput backend APIs,
-          and AI/ML document intelligence pipelines.
-        </motion.p>
-
-        {/* Interactive Skill Badges */}
+        {/* Right Margin: Futuristic Robot Mascot Image */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.65, ease: "easeOut" }}
-          className={styles.heroTagContainer}
+          className={styles.heroRightCol}
+          initial={{ opacity: 0, x: 40, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          {["Manual Testing", "API QA (Postman)", "Python & Selenium", "ML Output Validation", "JIRA Lifecycle"].map(
-            (tag, idx) => (
-              <span key={idx} className={styles.heroTagPill} data-cursor={tag.toUpperCase()}>
-                {tag}
-              </span>
-            )
-          )}
-        </motion.div>
+          <div className={styles.robotImageWrapper} data-cursor="QA ROBOT">
+            {/* Glowing Backdrop Ring */}
+            <div className={styles.robotGlowRing} />
+            
+            {/* Robot Image Asset */}
+            <Image
+              src="/robot_qa.png"
+              alt="QA Automation Robot Mascot"
+              width={460}
+              height={460}
+              className={styles.robotImage}
+              priority
+            />
 
-        {/* Contact Links & CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className={styles.heroCtaGroup}
-        >
-          <a
-            href={`mailto:${email}`}
-            className={styles.primaryCta}
-            data-cursor="HIRE ME"
-          >
-            Get In Touch
-          </a>
-          <a
-            href={`https://${linkedin}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondaryCta}
-            data-cursor="LINKEDIN"
-          >
-            LinkedIn Profile ↗
-          </a>
+            {/* Floating Live Status Badge */}
+            <div className={styles.robotLiveBadge}>
+              <span className={styles.robotLiveDot} />
+              <span>QA BOT ACTIVE • 100% SUITE PASS</span>
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Down Scroll Hint */}
+      {/* Scroll Down Indicator */}
       <motion.div
         className={styles.scrollDownIndicator}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        transition={{ delay: 1.1, duration: 0.8 }}
         data-cursor="SCROLL DOWN"
       >
         <span className={styles.scrollText}>SCROLL TO EXPLORE</span>

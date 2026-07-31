@@ -1,5 +1,8 @@
 "use client";
 
+import ThreeBackground from "@/components/ThreeBackground";
+import CustomCursor from "@/components/CustomCursor";
+import ProgressBar from "@/components/ProgressBar";
 import Hero from "@/components/Hero";
 import Summary from "@/components/Summary";
 import Experience from "@/components/Experience";
@@ -7,61 +10,54 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Awards from "@/components/Awards";
-import ProgressBar from "@/components/ProgressBar";
 
 export default function Home() {
   return (
     <main style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      {/* Junni-inspired Custom Cursor Ring */}
+      <CustomCursor />
+
+      {/* Interactive 3D WebGL Background Scene */}
+      <ThreeBackground />
+
+      {/* Top Scroll Reading Progress */}
       <ProgressBar />
 
-      {/* Colored Ambient Backdrop Glows */}
+      {/* Ambient Gradient Backdrop Overlays */}
       <div
         style={{
           position: "fixed",
-          top: "10%",
-          left: "-10%",
+          top: "5%",
+          left: "-5%",
           width: "45vw",
           height: "45vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0, 255, 135, 0.08) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          zIndex: 0,
+          background: "radial-gradient(circle, rgba(0, 255, 135, 0.07) 0%, transparent 70%)",
+          filter: "blur(70px)",
+          zIndex: 1,
           pointerEvents: "none",
         }}
       />
       <div
         style={{
           position: "fixed",
-          bottom: "15%",
-          right: "-15%",
+          bottom: "10%",
+          right: "-10%",
           width: "50vw",
           height: "50vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0, 240, 255, 0.06) 0%, transparent 70%)",
-          filter: "blur(80px)",
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "30%",
-          width: "35vw",
-          height: "35vw",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%)",
-          filter: "blur(75px)",
-          zIndex: 0,
+          background: "radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, transparent 70%)",
+          filter: "blur(90px)",
+          zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
+      {/* Main Content Overlay */}
       <div
         style={{
           position: "relative",
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
         <Hero />
@@ -71,17 +67,21 @@ export default function Home() {
         <Projects />
         <Education />
         <Awards />
+
         <footer
           style={{
             textAlign: "center",
-            padding: "3rem 2rem",
+            padding: "3.5rem 2rem",
             color: "var(--text-secondary)",
             borderTop: "1px solid var(--border-color)",
             marginTop: "4rem",
-            background: "var(--bg-secondary)",
+            background: "rgba(5, 5, 8, 0.85)",
+            backdropFilter: "blur(12px)",
           }}
         >
-          <p>© {new Date().getFullYear()} Gowtham Velusamy. All rights reserved.</p>
+          <p style={{ fontSize: "0.95rem", letterSpacing: "0.05em" }}>
+            © {new Date().getFullYear()} Gowtham Velusamy • QA, Automation & ML Pipeline Engineer
+          </p>
         </footer>
       </div>
     </main>

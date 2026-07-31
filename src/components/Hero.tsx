@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import QARobot3D from "./QARobot3D";
+import Avatar3DScene from "./Avatar3DScene";
 import { resumeData } from "../data/resume";
 import styles from "./components.module.css";
 
@@ -69,7 +69,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Margin: Interactive 3D Robot Head Tracking Cursor */}
+        {/* Right Margin: Interactive Animated 3D Avatar Scene */}
         <motion.div
           className={styles.heroRightCol}
           initial={{ opacity: 0, x: 40, scale: 0.95 }}
@@ -80,15 +80,15 @@ export default function Hero() {
             {/* Glowing Backdrop Ring */}
             <div className={styles.robotGlowRing} />
 
-            {/* 3D Interactive Head Tracking Robot Canvas */}
+            {/* Interactive 3D Animated Avatar Scene */}
             <div className={styles.robot3DCanvasContainer}>
-              <QARobot3D />
+              <Avatar3DScene />
             </div>
 
             {/* Floating Live Status Badge */}
             <div className={styles.robotLiveBadge}>
               <span className={styles.robotLiveDot} />
-              <span>3D QA BOT ACTIVE • TRACKING CURSOR</span>
+              <span>3D ANIMATED AVATAR • TRACKING CURSOR</span>
             </div>
           </div>
         </motion.div>

@@ -1,7 +1,6 @@
 "use client";
 
 import ThreeBackground from "@/components/ThreeBackground";
-import CustomCursor from "@/components/CustomCursor";
 import ProgressBar from "@/components/ProgressBar";
 import Hero from "@/components/Hero";
 import Summary from "@/components/Summary";
@@ -14,10 +13,7 @@ import Awards from "@/components/Awards";
 export default function Home() {
   return (
     <main style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
-      {/* Junni-inspired Custom Cursor Ring */}
-      <CustomCursor />
-
-      {/* Interactive 3D WebGL Background Scene */}
+      {/* Interactive Ambient 3D Plain Shade Background */}
       <ThreeBackground />
 
       {/* Top Scroll Reading Progress */}

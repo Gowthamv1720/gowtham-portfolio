@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import QARobot3D from "./QARobot3D";
 import { resumeData } from "../data/resume";
 import styles from "./components.module.css";
 
@@ -19,13 +19,13 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Status Badge */}
-          <div className={styles.statusBadge} data-cursor="QA TECH">
+          <div className={styles.statusBadge}>
             <span className={styles.statusDot} />
             <span>3+ Years STLC & ML QA Engineer</span>
           </div>
 
           {/* Name */}
-          <h1 className={`${styles.heroTitle} text-gradient`} data-cursor="GOWTHAM">
+          <h1 className={`${styles.heroTitle} text-gradient`}>
             {name}
           </h1>
 
@@ -43,7 +43,7 @@ export default function Hero() {
           <div className={styles.heroTagContainer}>
             {["Manual Testing", "API QA (Postman)", "Python & Selenium", "ML Output QA", "JIRA Defect Tracking"].map(
               (tag, idx) => (
-                <span key={idx} className={styles.heroTagPill} data-cursor={tag.toUpperCase()}>
+                <span key={idx} className={styles.heroTagPill}>
                   {tag}
                 </span>
               )
@@ -55,7 +55,6 @@ export default function Hero() {
             <a
               href={`mailto:${email}`}
               className={styles.primaryCta}
-              data-cursor="HIRE ME"
             >
               Get In Touch
             </a>
@@ -64,38 +63,32 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.secondaryCta}
-              data-cursor="LINKEDIN"
             >
               LinkedIn Profile ↗
             </a>
           </div>
         </motion.div>
 
-        {/* Right Margin: Futuristic Robot Mascot Image */}
+        {/* Right Margin: Interactive 3D Robot Head Tracking Cursor */}
         <motion.div
           className={styles.heroRightCol}
           initial={{ opacity: 0, x: 40, scale: 0.95 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <div className={styles.robotImageWrapper} data-cursor="QA ROBOT">
+          <div className={styles.robotImageWrapper}>
             {/* Glowing Backdrop Ring */}
             <div className={styles.robotGlowRing} />
-            
-            {/* Robot Image Asset */}
-            <Image
-              src="/robot_qa.png"
-              alt="QA Automation Robot Mascot"
-              width={460}
-              height={460}
-              className={styles.robotImage}
-              priority
-            />
+
+            {/* 3D Interactive Head Tracking Robot Canvas */}
+            <div className={styles.robot3DCanvasContainer}>
+              <QARobot3D />
+            </div>
 
             {/* Floating Live Status Badge */}
             <div className={styles.robotLiveBadge}>
               <span className={styles.robotLiveDot} />
-              <span>QA BOT ACTIVE • 100% SUITE PASS</span>
+              <span>3D QA BOT ACTIVE • TRACKING CURSOR</span>
             </div>
           </div>
         </motion.div>
@@ -107,7 +100,6 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.8 }}
-        data-cursor="SCROLL DOWN"
       >
         <span className={styles.scrollText}>SCROLL TO EXPLORE</span>
         <div className={styles.scrollBarLine}>

@@ -69,7 +69,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Margin: Interactive Animated 3D Avatar Scene */}
+        {/* Right Margin: Pure 3D Character Avatar with Mouse Head Tracking */}
         <motion.div
           className={styles.heroRightCol}
           initial={{ opacity: 0, x: 40, scale: 0.95 }}
@@ -77,18 +77,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
           <div className={styles.robotImageWrapper}>
-            {/* Glowing Backdrop Ring */}
-            <div className={styles.robotGlowRing} />
-
-            {/* Interactive 3D Animated Avatar Scene */}
+            {/* Interactive 3D Head Tracking Character Avatar */}
             <div className={styles.robot3DCanvasContainer}>
               <Avatar3DScene />
-            </div>
-
-            {/* Floating Live Status Badge */}
-            <div className={styles.robotLiveBadge}>
-              <span className={styles.robotLiveDot} />
-              <span>3D ANIMATED AVATAR • TRACKING CURSOR</span>
             </div>
           </div>
         </motion.div>

@@ -246,6 +246,12 @@
   background-color: var(--accent);
 }
 
+.experienceContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
 .projectCard {
   flex: 0 0 calc(50% - 1rem);
   scroll-snap-align: start;
@@ -280,6 +286,25 @@
   }
   .projectCard {
     flex: 0 0 85vw;
+  }
+  .experienceContainer {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem 0 1rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .experienceContainer::-webkit-scrollbar {
+    display: none;
+  }
+  .experienceContainer > .card {
+    flex: 0 0 88vw;
+    scroll-snap-align: start;
+    min-width: 88vw;
   }
 }
 
@@ -388,9 +413,9 @@
 
 .heroRightCol {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-left: auto;
+  width: 100%;
 }
 
 .heroTitle {
@@ -429,8 +454,8 @@
   aspect-ratio: 0.88;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .robotGlowRing {
@@ -448,7 +473,7 @@
   z-index: 1;
   width: min(420px, 100%);
   height: auto;
-  margin-left: auto;
+  margin: 0 auto;
   border-radius: 32px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);

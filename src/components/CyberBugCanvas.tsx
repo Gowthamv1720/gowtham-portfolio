@@ -382,6 +382,7 @@ interface CyberBugCanvasProps {
 export default function CyberBugCanvas({ introFinished = false, onReachCenter }: CyberBugCanvasProps) {
   const [stage, setStage] = useState<"intro" | "reveal" | "fade-to-cursor" | "cursor">("intro");
   const [introProgress, setIntroProgress] = useState(0);
+  const [pauseCursor, setPauseCursor] = useState(false);
 
   // Stable callback ref to avoid resetting the animation useEffect dependency loop
   const onReachCenterRef = useRef(onReachCenter);
@@ -429,6 +430,18 @@ export default function CyberBugCanvas({ introFinished = false, onReachCenter }:
     }
   }, [introFinished, stage]);
 
+  // Pause cursor rendering when marquee is hovered (reduce jank)
+  useEffect(() => {
+    const onEnter = () => setPauseCursor(true);
+    const onLeave = () => setPauseCursor(false);
+    window.addEventListener('marquee-enter', onEnter as EventListener);
+    window.addEventListener('marquee-leave', onLeave as EventListener);
+    return () => {
+      window.removeEventListener('marquee-enter', onEnter as EventListener);
+      window.removeEventListener('marquee-leave', onLeave as EventListener);
+    };
+  }, []);
+
   return (
     <>
       {/* Intro Overlay Canvas (visible during loading and reveal stages) */}
@@ -459,7 +472,7 @@ export default function CyberBugCanvas({ introFinished = false, onReachCenter }:
       )}
 
       {/* Interactive Cursor Bug Canvas (visible post-intro) */}
-      {stage === "cursor" && <CursorBug />}
+      {stage === "cursor" && !pauseCursor && <CursorBug />}
     </>
   );
 }

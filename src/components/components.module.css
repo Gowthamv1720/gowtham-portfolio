@@ -634,6 +634,12 @@
   z-index: 3;
 }
 
+/* When marquee is hovered, avoid scaling to prevent any perceived movement */
+:root.marquee-hover .heroIssueItemActive,
+.marquee-hover .heroIssueItemActive {
+  transform: none !important;
+}
+
 .heroIssueItemActive .heroIssueIcon {
   width: 2.3rem;
   height: 2.3rem;

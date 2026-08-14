@@ -134,7 +134,18 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className={styles.heroIssueMarquee} aria-label="Issue type marquee">
+      <div
+        className={styles.heroIssueMarquee}
+        aria-label="Issue type marquee"
+        onMouseEnter={() => {
+          document.documentElement.classList.add('marquee-hover');
+          window.dispatchEvent(new CustomEvent('marquee-enter'));
+        }}
+        onMouseLeave={() => {
+          document.documentElement.classList.remove('marquee-hover');
+          window.dispatchEvent(new CustomEvent('marquee-leave'));
+        }}
+      >
         <div className={styles.heroIssueTrack}>
           {[...issueTypeItems, ...issueTypeItems].map((item, index) => {
             const isHovered = hoveredIssue === item.label;

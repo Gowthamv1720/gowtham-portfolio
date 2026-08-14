@@ -249,7 +249,6 @@ function IntroBug({ introProgress, stage }: IntroBugProps) {
 
 // Custom 3D Mouse Cursor component
 function CursorBug() {
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   const [moving, setMoving] = useState(false);
   const [angle, setAngle] = useState(0);
   const [hovering, setHovering] = useState(false);
@@ -260,6 +259,9 @@ function CursorBug() {
   useEffect(() => {
     // Hide default system cursor
     document.body.classList.add("hide-default-cursor");
+    // initialize CSS variables so the cursor starts off-screen
+    document.documentElement.style.setProperty("--cursor-x", "-100px");
+    document.documentElement.style.setProperty("--cursor-y", "-100px");
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX: x, clientY: y } = e;
@@ -280,7 +282,9 @@ function CursorBug() {
         }, 120);
       }
       
-      setMousePos({ x, y });
+      // update CSS variables directly (avoids React re-renders on every mousemove)
+      document.documentElement.style.setProperty("--cursor-x", `${x}px`);
+      document.documentElement.style.setProperty("--cursor-y", `${y}px`);
       lastMouse.current = { x, y };
 
       // Detect hover over clickable objects to open wings
@@ -311,13 +315,14 @@ function CursorBug() {
     <div
       style={{
         position: "fixed",
-        left: mousePos.x,
-        top: mousePos.y,
+        left: 0,
+        top: 0,
         width: "60px",
         height: "60px",
-        transform: "translate(-50%, -50%)",
         pointerEvents: "none",
         zIndex: 99999,
+        // Use GPU-accelerated transform reading CSS variables updated on mousemove
+        transform: "translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0) translate(-50%, -50%)",
       }}
     >
       <Canvas

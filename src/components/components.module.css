@@ -611,24 +611,26 @@
   padding: 0.6rem 0.95rem;
   border-radius: 0;
   background: transparent;
-  border: none;
+  /* keep border width to avoid layout shift when color changes */
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--text-primary);
   font-size: 0.92rem;
   font-weight: 600;
   white-space: nowrap;
   backdrop-filter: none;
   box-shadow: none;
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, filter 0.45s ease, background 0.35s ease, border-color 0.35s ease;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.18s linear, background 0.18s linear, border-color 0.18s linear;
   transform-origin: center center;
   cursor: pointer;
 }
 
 .heroIssueItemActive {
-  transform: scale(1.55) translateZ(0);
+  transform: scale(1.25) translateZ(0);
+  will-change: transform;
   background: transparent;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: none;
-  filter: brightness(1.25) blur(0px);
+  filter: brightness(1.15);
   z-index: 3;
 }
 
@@ -640,9 +642,8 @@
 }
 
 .heroIssueItemDimmed {
-  opacity: 0.38;
-  transform: scale(0.78);
-  filter: blur(1.8px);
+  opacity: 0.55;
+  transform: scale(0.92);
 }
 
 .heroIssueIcon {
@@ -759,7 +760,11 @@
   font-size: 0.92rem;
   font-weight: 600;
   white-space: nowrap;
-  backdrop-filter: blur(10px);
+  /* avoid heavy backdrop-filter to reduce repaints */
+  backdrop-filter: none;
+  box-shadow: none;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.18s linear, background 0.18s linear, border-color 0.18s linear;
+  will-change: transform, opacity;
 }
 
 .heroIssueIcon {

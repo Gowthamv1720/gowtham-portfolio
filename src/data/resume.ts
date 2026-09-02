@@ -1,7 +1,7 @@
 export const resumeData = {
   personalInfo: {
     name: "Gowtham Velusamy",
-    role: "Junior QA Engineer | QA Test Engineer",
+    role: "Junior QA Engineer",
     phone: "+91 7904517141",
     email: "gowthamkv1720@gmail.com",
     location: "Karur, Tamil Nadu, India",

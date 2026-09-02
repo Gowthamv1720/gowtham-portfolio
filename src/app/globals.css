@@ -32,6 +32,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+  /* Keep scrollbar space stable to avoid layout shift on show/hide */
+  scrollbar-gutter: stable both-edges;
   line-height: 1.6;
 }
 
